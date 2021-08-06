@@ -1,0 +1,10 @@
+во время сборки может возникнуть ошибка
+    /home/src/nginx-1.14.0/src/core/ngx_cycle.c:476: undefined reference to 'ngx_shm_alloc'
+    /home/src/nginx-1.14.0/src/core/ngx_cycle.c:685: undefined reference to 'ngx_shm_free'
+
+Solution
+vi objs/ngx_auto_config.h
+
+    #ifndef NGX_HAVE_SYSVSHM
+    #define NGX_HAVE_SYSVSHM 1
+    #endif
